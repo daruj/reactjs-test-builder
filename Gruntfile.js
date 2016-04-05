@@ -9,7 +9,7 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         concurrent: {
             dev: {
-                tasks: ['exec','nodemon:dev','watch'],
+                tasks: ['nodemon:dev','watch'],
                 options: {
                     logConcurrentOutput: true
                 }
@@ -18,7 +18,7 @@ module.exports = function(grunt) {
         watch: {
             // if a javascript from these folders change, run the packaging
             app: {
-                files: ['modules/**/*'],
+                files: ['modules/**/main.jsx','modules/**/**/*.jsx'],
                 tasks: ['exec']
             },
             server: {
