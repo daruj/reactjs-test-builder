@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul>
+        <% folders.forEach(function(folderName) { %>
+            <li><a href="/<%= folderName %>"><%= folderName %></a></li>
+        <% }); %>
+    </ul>
+</body>
+</html>
