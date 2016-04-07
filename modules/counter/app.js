@@ -44,6 +44,8 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+
 	/**
 	 * Created by damianaruj on 3/26/16.
 	 */
@@ -51,44 +53,62 @@
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(158);
 
+	var App = React.createClass({
+	    displayName: 'App',
 
-	var App = React.createClass({displayName: "App",
-	    getInitialState: function() {
-	        return {value: 0}
+	    getInitialState: function getInitialState() {
+	        return { value: 0 };
 	    },
-	    changeCounterValue: function(newValue){
-	        if(newValue >= 0) {
-	            this.setState({value: newValue})
+	    changeCounterValue: function changeCounterValue(newValue) {
+	        if (newValue >= 0) {
+	            this.setState({ value: newValue });
 	        }
 	    },
-	    render: function(){
-	        return (
-	            React.createElement("div", null, 
-	                React.createElement(CounterLabel, {value: this.state.value}), 
-	                React.createElement(CounterActions, {value: this.state.value, onChange: this.changeCounterValue})
-	            )
-	        )
+	    render: function render() {
+	        return React.createElement(
+	            'div',
+	            null,
+	            React.createElement(CounterLabel, { value: this.state.value }),
+	            React.createElement(CounterActions, { value: this.state.value, onChange: this.changeCounterValue })
+	        );
 	    }
 	});
 
-	var CounterLabel = React.createClass({displayName: "CounterLabel",
-	    render: function(){
-	        return (
-	            React.createElement("div", null, 
-	                React.createElement("span", null, "Counter vale: ", this.props.value)
+	var CounterLabel = React.createClass({
+	    displayName: 'CounterLabel',
+
+	    render: function render() {
+	        return React.createElement(
+	            'div',
+	            null,
+	            React.createElement(
+	                'span',
+	                null,
+	                'Counter vale: ',
+	                this.props.value
 	            )
-	        )
+	        );
 	    }
 	});
 
-	var CounterActions = React.createClass({displayName: "CounterActions",
-	    render: function(){
-	        return (
-	            React.createElement("div", null, 
-	                React.createElement("button", {onClick: this.props.onChange.bind(null, this.props.value + 1)}, "Increase"), 
-	                React.createElement("button", {onClick: this.props.onChange.bind(null, this.props.value - 1)}, "Decrease")
+	var CounterActions = React.createClass({
+	    displayName: 'CounterActions',
+
+	    render: function render() {
+	        return React.createElement(
+	            'div',
+	            null,
+	            React.createElement(
+	                'button',
+	                { onClick: this.props.onChange.bind(null, this.props.value + 1) },
+	                'Increase'
+	            ),
+	            React.createElement(
+	                'button',
+	                { onClick: this.props.onChange.bind(null, this.props.value - 1) },
+	                'Decrease'
 	            )
-	        )
+	        );
 	    }
 	});
 

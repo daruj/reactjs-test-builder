@@ -1,4 +1,4 @@
-var React = require('react');
+import React from 'react';
 
 var elementStyle = {
     padding: '5px',
@@ -13,18 +13,21 @@ var removeItemStyles = {
     cursor: 'pointer'
 };
 
-var TodoElement = React.createClass({
-    deleteItem: function() {
+
+export default class TodoElement extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {}
+    }
+    deleteItem() {
         this.props.removeItem();
-    },
-    render: function() {
+    }
+    render() {
         return (
             <li style={elementStyle}>
                 <span>{this.props.value}</span>
-                <span onClick={this.deleteItem} style={removeItemStyles}>X</span>
+                <span onClick={() => this.props.removeItem()} style={removeItemStyles}>X</span>
             </li>
         )
     }
-});
-
-module.exports = TodoElement;
+}

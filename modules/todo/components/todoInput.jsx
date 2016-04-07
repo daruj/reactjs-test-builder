@@ -1,15 +1,15 @@
-var React = require('react');
+import React from 'react';
 
-var TodoInput = React.createClass({
-    getInitialState: function() {
-        return {
+export default class TodoInput extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
             msg: '',
             inputStyles: {}
         }
-    },
-    updateValue: function(e){
-        var value = e.target.value,
-            newState = {
+    }
+    updateValue(value) {
+        var newState = {
                 msg: value,
                 inputStyles: {}
             };
@@ -19,34 +19,35 @@ var TodoInput = React.createClass({
             }
         }
         this.setState(newState);
-    },
-    onKeyDown: function(event) {
+    }
+    onKeyDown(event) {
         if(event.keyCode == 13) {
             this.submitValue()
         }
-    },
-    submitValue: function() {
+    }
+    submitValue() {
         if(this.state.msg.length) {
             this.props.onAdd(this.state.msg);
             this.setState({
                 msg: ''
             });
         }
-    },
-    render: function() {
+    }
+    render() {
         return (
             <div>
                 <input
                     type="text"
                     style={this.state.inputStyles}
                     value={this.state.msg}
-                    onChange={this.updateValue}
-                    onKeyDown={this.onKeyDown}
+                    onChange={() => this.updateValue(this.refs.todoInput.value)}
+                    onKeyDown={this.onKeyDown.bind(this)}
+                    ref="todoInput"
                 />
-                <button onClick={this.submitValue} disabled={!this.state.msg.length}>Submit</button>
+                <button onClick={() => this.submitValue()} disabled={!this.state.msg.length}>Submit</button>
             </div>
         )
 
     }
-});
-module.exports = TodoInput;
+};
+

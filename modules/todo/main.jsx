@@ -2,39 +2,38 @@
  * Created by damianaruj on 3/26/16.
  */
 // main.js
-var React = require('react');
-var ReactDOM = require('react-dom');
-var update = require('react-addons-update');
-var TodoInput = require('./components/todoInput.jsx');
-var TodoList = require('./components/todoList.jsx');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import update from 'react-addons-update';
+import TodoInput from './components/todoInput.jsx';
+import TodoList from './components/todoList.jsx';
 
-
-var App = React.createClass({
-    getInitialState: function() {
-        return {
+class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
             items: []
         }
-    },
-    addItem: function(value) {
+    }
+    addItem(value) {
         this.setState({
             items: update(this.state.items, {$push: [value]})
         });
-    },
-    removeItem: function(index) {
+    }
+    removeItem(index) {
         this.setState({
             items: update(this.state.items, {$splice: [[index, 1]]})
         });
-    },
-    render: function(){
+    }
+    render(){
         return (
             <div>
                 <h1>TODO PAGE</h1>
-                <TodoInput onAdd={this.addItem} />
-                <TodoList items={this.state.items} removeItem={this.removeItem} />
+                <TodoInput onAdd={(value) => this.addItem(value)} />
+                <TodoList items={this.state.items} removeItem={() => this.removeItem()} />
             </div>
         )
     }
-});
-
+}
 
 ReactDOM.render(<App />, document.getElementById('container'));
