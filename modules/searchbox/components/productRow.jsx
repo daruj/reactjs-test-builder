@@ -6,6 +6,9 @@ export default class ProductRow extends React.Component {
         super(props);
         this.state = {}
     }
+    shouldComponentUpdate(nextProps, nextState) {
+        return this.props.item !== nextProps.item
+    }
     render() {
         return (
             <tr>

@@ -24849,15 +24849,11 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _productCategoryRow = __webpack_require__(162);
-
-	var _productCategoryRow2 = _interopRequireDefault(_productCategoryRow);
-
-	var _productRow = __webpack_require__(163);
+	var _productRow = __webpack_require__(162);
 
 	var _productRow2 = _interopRequireDefault(_productRow);
 
-	var _productTableHeader = __webpack_require__(164);
+	var _productTableHeader = __webpack_require__(163);
 
 	var _productTableHeader2 = _interopRequireDefault(_productTableHeader);
 
@@ -24936,62 +24932,6 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var ProductCategoryRow = function (_React$Component) {
-	    _inherits(ProductCategoryRow, _React$Component);
-
-	    function ProductCategoryRow(props) {
-	        _classCallCheck(this, ProductCategoryRow);
-
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ProductCategoryRow).call(this, props));
-
-	        _this.state = {};
-	        return _this;
-	    }
-
-	    _createClass(ProductCategoryRow, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'div',
-	                null,
-	                'Hello World!'
-	            );
-	        }
-	    }]);
-
-	    return ProductCategoryRow;
-	}(_react2.default.Component);
-
-	exports.default = ProductCategoryRow;
-
-/***/ },
-/* 163 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactDom = __webpack_require__(158);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
 	var ProductRow = function (_React$Component) {
 	    _inherits(ProductRow, _React$Component);
 
@@ -25005,6 +24945,11 @@
 	    }
 
 	    _createClass(ProductRow, [{
+	        key: 'shouldComponentUpdate',
+	        value: function shouldComponentUpdate(nextProps, nextState) {
+	            return this.props.item !== nextProps.item;
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
@@ -25030,7 +24975,7 @@
 	exports.default = ProductRow;
 
 /***/ },
-/* 164 */
+/* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
