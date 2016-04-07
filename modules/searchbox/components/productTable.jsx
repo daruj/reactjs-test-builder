@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import ProductCategoryRow from './productCategoryRow.jsx';
 import ProductRow from './productRow.jsx'
 import ProductTableHeader from './productTableHeader.jsx';
 
