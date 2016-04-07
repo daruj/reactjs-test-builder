@@ -1,11 +1,7 @@
-/**
- * Created by damianaruj on 3/26/16.
- */
-// main.js
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-class App extends React.Component {
+export default class ProductCategoryRow extends React.Component {
     constructor(props) {
         super(props);
         this.state = {}
@@ -16,6 +12,3 @@ class App extends React.Component {
         )
     }
 }
-
-
-ReactDOM.render(<App />, document.getElementById('container'));
